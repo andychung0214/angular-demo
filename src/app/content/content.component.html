@@ -1,0 +1,75 @@
+
+<!-- <ng-container *ngIf="datas$ | async as products">
+  <ng-container *ngFor="let item of products">
+    <p>{{ item.title }}</p>
+    <p>{{item.category}}</p>
+    <p>{{item.description}}</p>
+  </ng-container>
+</ng-container> -->
+
+<h2>內插繫結</h2>
+<p>{{ demoText }}</p>
+<hr />
+
+<h2>屬性繫結</h2>
+<a [href]="hrefUrl">環資國際連結</a>
+<hr />
+
+<h2>事件繫結</h2>
+<span>{{ eventText }}</span><button (click)="changeEventText()">Change Text</button>
+<hr />
+
+<h2>雙向繫結</h2>
+<input type="text" [(ngModel)]="twoWayText" />
+<div>
+  <label>輸入文字為：{{ twoWayText }}</label>
+  <span>輸入字數長度：{{ twoWayText.length }} </span>
+</div>
+<hr />
+
+
+<h2>ngStyle</h2>
+<h1 [ngStyle]="getStyle()">{{counter}}</h1>
+<input type="button" value="計數器+按了會變大" (click)="count()">
+<hr />
+
+
+<h2>ngClass</h2>
+目前數字: {{classCounter}}
+<input type="button" value="使用ngClass" (click)="classCount()">
+<p [ngClass]="{highlight: classCounter % 2 == 0}">偶數時顏色改成森林綠</p>
+<hr />
+
+
+
+<h2>ngIf</h2>
+目前數字: {{ifCounter}}
+<input type="button" value="使用ngIf" (click)="ifCount()">
+<p *ngIf="ifCounter % 2 == 0">偶數時整個DOM會被移除</p>
+<hr />
+
+
+<h2>ngSwitch</h2>
+目前數字: {{switchCounter}}
+<input type="button" value="累加數字，當顯示四的倍數，代表跑到Defautl敘述" (click)="switchCount()">
+<div [ngSwitch]="switchCounter % 4">
+        <div *ngSwitchCase="1"><p>4N+1</p></div>
+        <div *ngSwitchCase="2"><p>4N+2</p></div>
+        <div *ngSwitchCase="3"><p>4N+3</p></div>
+        <div *ngSwitchDefault><p>Default 四的倍數</p></div>
+    </div>
+    <hr>
+
+<h2>ngFor</h2>
+<div class="card-group" *ngFor="let item of datas">
+  <div class="card">
+    <img class="card-img-top" [src]="item.image" alt="Card image cap" style="width: 44%;">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.title }} / {{ item.category }}</h5>
+      <p class="card-text">{{ item.description }}</p>
+    </div>
+</div>
+
+
+
+
